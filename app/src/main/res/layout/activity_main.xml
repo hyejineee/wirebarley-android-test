@@ -4,15 +4,152 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="20dp"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/titleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="환율 계산"
+        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/remittanceCountryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        android:text="송금국가 : "
+        android:textSize="14dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleLabel" />
+
+    <TextView
+        android:id="@+id/remittanceCountryTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="미국(USD)"
+        android:textSize="14dp"
+        app:layout_constraintLeft_toRightOf="@+id/remittanceCountryLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/remittanceCountryLabel" />
+
+    <TextView
+        android:id="@+id/recipientCountryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="수취국가 : "
+        android:textSize="14dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remittanceCountryLabel" />
+
+    <TextView
+        android:id="@+id/recipientCountryTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="14dp"
+        app:layout_constraintLeft_toRightOf="@+id/recipientCountryLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/remittanceCountryTextView"
+        tools:text="미국(USD)" />
+
+    <TextView
+        android:id="@+id/exchangeRateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="환율 : "
+        android:textSize="14dp"
+        app:layout_constraintRight_toRightOf="@+id/recipientCountryLabel"
+        app:layout_constraintTop_toBottomOf="@+id/recipientCountryLabel" />
+
+    <TextView
+        android:id="@+id/exchangeRateTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="14dp"
+        app:layout_constraintLeft_toRightOf="@+id/recipientCountryLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/exchangeRateLabel"
+        tools:text="1,130.55 KRW /USD" />
+
+    <TextView
+        android:id="@+id/collectionTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="조회시간 : "
+        android:textSize="14dp"
+        app:layout_constraintRight_toRightOf="@+id/recipientCountryLabel"
+        app:layout_constraintTop_toBottomOf="@+id/exchangeRateLabel" />
+
+    <TextView
+        android:id="@+id/collectionTimeTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="14dp"
+        app:layout_constraintLeft_toRightOf="@+id/collectionTimeLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/collectionTimeLabel"
+        tools:text="0000-00-00 00:00" />
+
+    <TextView
+        android:id="@+id/remittanceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="송금액 : "
+        android:textSize="14dp"
+        app:layout_constraintRight_toRightOf="@+id/recipientCountryLabel"
+        app:layout_constraintTop_toBottomOf="@+id/collectionTimeLabel" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/remittanceInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="5dp"
+        app:layout_constraintLeft_toRightOf="@+id/remittanceLabel"
+        app:layout_constraintRight_toRightOf="@+id/titleLabel"
+        app:layout_constraintTop_toTopOf="@+id/remittanceLabel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/remittanceEditTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/currencyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/remittanceInputLayout"
+        app:layout_constraintLeft_toRightOf="@+id/remittanceInputLayout"
+        app:layout_constraintTop_toTopOf="@id/remittanceInputLayout"
+        tools:text="USD" />
+
+    <TextView
+        android:id="@+id/amountReceivedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="수취금액은  111,004.98 KRW 입니다."
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remittanceInputLayout" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
