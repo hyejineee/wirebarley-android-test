@@ -1,15 +1,22 @@
-package com.hyejineee.exchangeratecalculator
+package com.hyejineee.exchangeratecalculator.data
 
 import javax.inject.Inject
 
 interface ExchangeRateRepository {
-    fun getExchangeRate(from: Country, to: Country): ExchangeRate
+    suspend fun getExchangeRate(from: Country, to: Country): ExchangeRate
+    suspend fun getAllExchangeRate()
 }
 
-class ExchangeRateRepositoryImpl @Inject constructor() : ExchangeRateRepository {
+class ExchangeRateRepositoryImpl @Inject constructor(
+     private val exchangeRateRemoteDatasource:ExchangeRateRemoteDataSource
+) : ExchangeRateRepository {
 
-    override fun getExchangeRate(from: Country, to: Country): ExchangeRate {
-        // TODO: 데이터베이스에서 환율 정보 조회한 후에 리턴 캐싱된게 있으면 캐시리턴
+
+    override suspend fun getExchangeRate(from: Country, to: Country): ExchangeRate {
+
+        val data = exchangeRateRemoteDatasource.getAllExchangeRate()
+
+
 
         return ExchangeRate(
             from = Country("미국", "USD"),
@@ -17,6 +24,13 @@ class ExchangeRateRepositoryImpl @Inject constructor() : ExchangeRateRepository 
             collectionTime = System.currentTimeMillis(),
             exchangeRate = 1121.419945
         )
+    }
+
+    override suspend fun getAllExchangeRate() {
+        val data = exchangeRateRemoteDatasource.getAllExchangeRate()
+
+        
+
     }
 
 }
