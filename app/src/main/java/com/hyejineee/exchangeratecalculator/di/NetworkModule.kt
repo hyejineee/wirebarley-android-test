@@ -1,8 +1,8 @@
 package com.hyejineee.exchangeratecalculator.di
 
-import com.hyejineee.exchangeratecalculator.datasource.ExchangeRateAPI
-import com.hyejineee.exchangeratecalculator.datasource.ExchangeRateRemoteDataSource
-import com.hyejineee.exchangeratecalculator.datasource.ExchangeRateService
+import com.hyejineee.exchangeratecalculator.datasource.remote.ExchangeRateAPI
+import com.hyejineee.exchangeratecalculator.datasource.remote.ExchangeRateRemoteDataSource
+import com.hyejineee.exchangeratecalculator.datasource.remote.ExchangeRateService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,7 +37,4 @@ object NetworkModule {
     @Provides
     fun provideExchangeRateService(api: ExchangeRateAPI) = ExchangeRateService(api)
 
-    @Provides
-    fun provideExchangeRateRemote(service: ExchangeRateService) =
-        ExchangeRateRemoteDataSource(service)
 }

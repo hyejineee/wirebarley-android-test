@@ -1,4 +1,4 @@
-package com.hyejineee.exchangeratecalculator.datasource
+package com.hyejineee.exchangeratecalculator.datasource.remote
 
 import retrofit2.Call
 import retrofit2.http.GET

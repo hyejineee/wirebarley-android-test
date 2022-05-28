@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ExchangeRateCalculator</string>
+    <string name="USD">미국</string>
+    <string name="KRW">한국</string>
+    <string name="JPY">일본</string>
+    <string name="PHP">필리핀</string>
 </resources>

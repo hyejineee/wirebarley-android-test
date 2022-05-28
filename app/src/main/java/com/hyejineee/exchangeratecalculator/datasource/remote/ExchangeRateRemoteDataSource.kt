@@ -1,4 +1,4 @@
-package com.hyejineee.exchangeratecalculator.datasource
+package com.hyejineee.exchangeratecalculator.datasource.remote
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
@@ -13,14 +13,13 @@ class ExchangeRateRemoteDataSource @Inject constructor(
     suspend fun getAllExchangeRate(
         source: String = "USD",
         currencies: List<String> = listOf("KRW", "JPY", "PHP")
-    ) = coroutineScope {
-        val response = withContext(Dispatchers.IO) {
-            exchangeRateService.getAllExchangeRate(
-                source,
-                currencies
-            ).execute()
-        }
+    ) = withContext(Dispatchers.IO) {
+        val response = exchangeRateService.getAllExchangeRate(
+            source,
+            currencies
+        ).execute()
 
         response.body()
     }
+
 }
