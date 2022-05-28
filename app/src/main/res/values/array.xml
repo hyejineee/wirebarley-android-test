@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="recipientCountry">
+        <item>힌국 (KRW)</item>
+        <item>일본 (JPY)</item>
+        <item>필리핀 (PHP)</item>
+    </string-array>
+</resources>
