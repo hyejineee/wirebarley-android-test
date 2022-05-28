@@ -6,6 +6,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.hyejineee.exchangeratecalculator.data.Country
 import com.hyejineee.exchangeratecalculator.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

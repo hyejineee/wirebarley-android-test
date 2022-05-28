@@ -1,4 +1,4 @@
-package com.hyejineee.exchangeratecalculator
+package com.hyejineee.exchangeratecalculator.data
 
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat

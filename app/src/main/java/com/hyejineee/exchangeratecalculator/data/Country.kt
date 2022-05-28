@@ -1,4 +1,4 @@
-package com.hyejineee.exchangeratecalculator
+package com.hyejineee.exchangeratecalculator.data
 
 data class Country(
     val name:String,
