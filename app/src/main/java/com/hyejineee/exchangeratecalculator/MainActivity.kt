@@ -83,8 +83,5 @@ class MainActivity : AppCompatActivity() {
         viewModel.isLoading.observe(this){
             binding.loadingLayout.isVisible = it
         }
-
     }
-
-
 }
