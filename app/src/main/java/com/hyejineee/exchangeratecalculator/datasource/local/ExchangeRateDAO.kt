@@ -15,5 +15,5 @@ interface ExchangeRateDAO {
     fun insertAllExchangeRate(vararg data: ExchangeRate)
 
     @Query("select * from ExchangeRate where from_currency =:from and to_currency =:to")
-    fun getExchangeRate(from: String, to: String):ExchangeRate
+    fun getExchangeRate(from: String, to: String):ExchangeRate?
 }
