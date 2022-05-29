@@ -1,5 +1,6 @@
 package com.hyejineee.exchangeratecalculator.datasource.remote
 
+import com.hyejineee.exchangeratecalculator.BuildConfig
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -7,7 +8,7 @@ import retrofit2.http.Query
 import javax.inject.Inject
 
 interface ExchangeRateAPI {
-    @Headers("apikey: knNE0Xc0nbuPOiKn08IkDIk6G6cD54sx")
+    @Headers("apikey: ${BuildConfig.CURRENCY_API_KEY}")
     @GET("live")
     fun getAllExchangeRate(
         @Query("source") source: String,

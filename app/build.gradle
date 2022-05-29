@@ -5,18 +5,25 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     compileSdk 31
 
     defaultConfig {
+
         applicationId "com.hyejineee.exchangeratecalculator"
         minSdk 26
         targetSdk 31
         versionCode 1
         versionName "1.0"
 
+        buildConfigField "String", "CURRENCY_API_KEY", properties['api_key']
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
 
     buildTypes {
         release {
