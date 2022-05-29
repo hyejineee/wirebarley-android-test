@@ -1,11 +1,13 @@
 package com.hyejineee.exchangeratecalculator
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.hyejineee.exchangeratecalculator.data.Country
 import com.hyejineee.exchangeratecalculator.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -62,6 +64,8 @@ class MainActivity : AppCompatActivity() {
             val money = binding.remittanceEditTextView.text.toString().toInt()
             viewModel.calculate(money)
         }
+        
+        binding.loadingLayout.setOnTouchListener { v, event -> true }
 
     }
 
@@ -74,6 +78,10 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.received.observe(this) {
             binding.received = it
+        }
+
+        viewModel.isLoading.observe(this){
+            binding.loadingLayout.isVisible = it
         }
 
     }

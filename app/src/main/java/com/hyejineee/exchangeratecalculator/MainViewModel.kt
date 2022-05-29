@@ -26,14 +26,17 @@ class MainViewModel @Inject constructor(
     val isLoading: LiveData<Boolean> = _isLoading
 
     init {
+        _isLoading.value = true
         viewModelScope.launch {
             exchangeRateRepository.getAllExchangeRate()
+            _isLoading.value = false
         }
+
     }
 
 
     fun selectRecipientCountry(country: Country) {
-
+        _isLoading.value = true
         viewModelScope.launch {
             val new = exchangeRateRepository.getExchangeRate(
                 from = Country("미국", "USD"),
@@ -41,6 +44,7 @@ class MainViewModel @Inject constructor(
             )
             _exchangeRate.value = new.toUiModel()
             _received.value = ""
+            _isLoading.value = false
         }
     }
 
